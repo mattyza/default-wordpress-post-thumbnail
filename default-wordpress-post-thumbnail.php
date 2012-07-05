@@ -27,6 +27,27 @@ License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2
 // Instantiate class.
 new Matty_Default_Post_Thumbnail();
 
+/**
+ * Matty Default Post Thumbnail class.
+ *
+ * All functionality pertaining to the Matty Default Post Thumbnail plugin.
+ *
+ * @package WordPress
+ * @subpackage Plugins
+ * @category Media
+ * @author Matty
+ * @since 1.0.0
+ *
+ * TABLE OF CONTENTS
+ *
+ * - __construct()
+ * - get_default_thumbnail()
+ * - register_default_thumbnail_selector()
+ * - thumbnail_section()
+ * - default_thumbnail_check_bool()
+ * - default_thumbnail_select_box()
+ * - filter_on_admin_checkbox()
+ */
 class Matty_Default_Post_Thumbnail {
 	/**
 	 * Constructor.
@@ -84,6 +105,12 @@ class Matty_Default_Post_Thumbnail {
 		settings_fields( 'matty-default-thumbnail' );
 	} // End thumbnail_section()
 
+	/**
+	 * Check if the supplied value is as expected, and cast it as a boolean.
+	 * @since  1.0.0
+	 * @param  string $value The value to be checked (should be either '1' or empty)
+	 * @return boolean       The sanitized value, cast as a boolean.
+	 */
 	public function default_thumbnail_check_bool ( $value ) {
 		if ( $value != '1' ) { $value = '0'; }
 
